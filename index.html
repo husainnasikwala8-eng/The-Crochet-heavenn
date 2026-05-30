@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="theme-color" content="#170d1c">
+  <meta name="theme-color" content="#fdf8f2">
   <title>The Crochet Heavenn | Premium Bespoke Art</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,12 +19,15 @@
         extend: {
           colors: {
             brand: {
-              dark: '#110a15',
-              plum: '#281733',
-              accent: '#472b5c',
-              gold: '#E5C07B',
-              goldlight: '#F8E1B5',
-              glass: 'rgba(23, 13, 28, 0.75)'
+              bg:      '#fdf8f2',
+              cream:   '#f5ede0',
+              warm:    '#ede0ce',
+              border:  '#e0cdb8',
+              text:    '#1a1008',
+              muted:   '#7a6650',
+              gold:    '#b07d2e',
+              golddk:  '#8a5e1a',
+              rose:    '#c47a85',
             }
           },
           fontFamily: {
@@ -38,11 +41,11 @@
           keyframes: {
             float: {
               '0%, 100%': { transform: 'translateY(0) scale(1)' },
-              '50%': { transform: 'translateY(-15px) scale(1.02)' },
+              '50%':       { transform: 'translateY(-15px) scale(1.02)' },
             },
             'glow-pulse': {
-              '0%': { filter: 'drop-shadow(0 0 10px rgba(229,192,123,0.3))' },
-              '100%': { filter: 'drop-shadow(0 0 25px rgba(229,192,123,0.6))' },
+              '0%':   { filter: 'drop-shadow(0 0 6px rgba(176,125,46,0.25))' },
+              '100%': { filter: 'drop-shadow(0 0 16px rgba(176,125,46,0.55))' },
             }
           }
         }
@@ -51,66 +54,58 @@
   </script>
 
   <style>
-    /* Graphic Designer Base Textures */
-    body { 
-      background-color: theme('colors.brand.dark'); 
-      background-image: 
-        radial-gradient(at 0% 0%, rgba(71, 43, 92, 0.4) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(229, 192, 123, 0.1) 0px, transparent 50%);
+    body {
+      background-color: #fdf8f2;
+      background-image:
+        radial-gradient(at 0% 0%,   rgba(196,122,133,0.10) 0px, transparent 55%),
+        radial-gradient(at 100% 0%,  rgba(176,125,46,0.08)  0px, transparent 55%),
+        radial-gradient(at 50% 100%, rgba(237,224,206,0.6)   0px, transparent 60%);
       background-attachment: fixed;
-      color: #fff; 
+      color: #1a1008;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Textured Gradients */
     .premium-text-gradient {
-      background: linear-gradient(to right, #F8E1B5, #E5C07B, #D4AF37);
+      background: linear-gradient(to right, #b07d2e, #8a5e1a, #c47a85);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
 
-    /* 3D App Preview Cards */
     .app-card {
-      background: linear-gradient(145deg, rgba(40, 23, 51, 0.6), rgba(17, 10, 21, 0.9));
-      border: 1px solid rgba(229, 192, 123, 0.15);
-      backdrop-filter: blur(12px);
+      background: #ffffff;
+      border: 1px solid #e0cdb8;
       border-radius: 24px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
+      box-shadow: 0 4px 24px rgba(176,125,46,0.08), 0 1px 3px rgba(0,0,0,0.06);
       transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
-    
     .app-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 30px 60px rgba(0,0,0,0.7), 0 0 30px rgba(229, 192, 123, 0.15);
-      border-color: rgba(229, 192, 123, 0.4);
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(176,125,46,0.15), 0 2px 8px rgba(0,0,0,0.08);
+      border-color: #b07d2e;
     }
 
-    /* Strict Framing & Cropping for Screenshots */
     .gallery-frame {
       width: 100%;
-      aspect-ratio: 4 / 5; 
+      aspect-ratio: 4 / 5;
       overflow: hidden;
       border-radius: 16px;
       position: relative;
-      background: #000;
+      background: #f5ede0;
     }
-
     .gallery-img {
       width: 100%;
       height: 100%;
-      object-fit: cover; 
+      object-fit: cover;
       object-position: center;
-      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), filter 0.3s;
+      transition: transform 0.6s cubic-bezier(0.25,1,0.5,1), filter 0.3s;
     }
-
     .gallery-item:hover .gallery-img {
       transform: scale(1.06);
-      filter: brightness(1.1);
+      filter: brightness(1.05);
     }
 
-    /* App-like Swipe Track */
     .swipe-track {
       display: flex;
       gap: 20px;
@@ -126,7 +121,6 @@
       max-width: 340px;
     }
 
-    /* Lightbox Expansion Feature */
     .lightbox {
       opacity: 0;
       pointer-events: none;
@@ -138,17 +132,14 @@
       pointer-events: auto;
     }
     .lightbox-img {
-      transform: scale(0.8);
+      transform: scale(0.85);
       transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
-    .lightbox.active .lightbox-img {
-      transform: scale(1);
-    }
+    .lightbox.active .lightbox-img { transform: scale(1); }
 
-    /* Reveal Physics */
     .reveal {
       opacity: 0;
-      transform: translateY(40px);
+      transform: translateY(36px);
       transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .reveal.active {
@@ -156,242 +147,305 @@
       transform: translateY(0);
     }
     .hidden-force { display: none !important; }
+
+    /* nav glass */
+    .nav-glass {
+      background: rgba(253,248,242,0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    /* pill tag */
+    .tag-pill {
+      background: #fff8f0;
+      border: 1px solid #e0cdb8;
+      color: #b07d2e;
+    }
+
+    /* review card */
+    .review-card {
+      background: #ffffff;
+      border: 1px solid #e8d9c4;
+      border-radius: 24px;
+      box-shadow: 0 4px 20px rgba(176,125,46,0.07);
+      transition: all 0.35s ease;
+    }
+    .review-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 36px rgba(176,125,46,0.13);
+      border-color: #b07d2e;
+    }
+
+    /* pillar strip */
+    .pillar-strip {
+      background: linear-gradient(to right, #fff8f0, #fdf3e7, #fff8f0);
+      border-top: 1px solid #e8d9c4;
+      border-bottom: 1px solid #e8d9c4;
+    }
+
+    /* gallery bg */
+    .gallery-bg {
+      background: #f9f2e8;
+      border-top: 1px solid #e8d9c4;
+    }
+
+    /* footer */
+    .footer-bg {
+      background: #f0e6d6;
+      border-top: 1px solid #ddd0ba;
+    }
+
+    /* sticky bar */
+    .sticky-bar {
+      background: rgba(253,248,242,0.96);
+      backdrop-filter: blur(20px);
+      border-top: 1px solid #e0cdb8;
+      box-shadow: 0 -8px 32px rgba(176,125,46,0.08);
+    }
   </style>
 </head>
-<body class="selection:bg-brand-gold selection:text-brand-dark">
+<body class="selection:bg-brand-gold selection:text-white">
 
-  <div id="lightbox" class="lightbox fixed inset-0 z-[100] bg-brand-dark/95 flex flex-col items-center justify-center p-6">
-    <button id="close-lightbox" class="absolute top-6 right-6 w-12 h-12 rounded-full bg-brand-plum border border-brand-gold/30 text-brand-gold flex items-center justify-center text-xl hover:bg-brand-gold hover:text-brand-dark transition-all z-50">
+  <!-- LIGHTBOX -->
+  <div id="lightbox" class="lightbox fixed inset-0 z-[100] bg-white/95 flex flex-col items-center justify-center p-6">
+    <button id="close-lightbox" class="absolute top-6 right-6 w-12 h-12 rounded-full bg-brand-cream border border-brand-border text-brand-gold flex items-center justify-center text-xl hover:bg-brand-gold hover:text-white transition-all z-50 shadow-md">
       <i class="fa-solid fa-xmark"></i>
     </button>
     <div class="relative max-w-2xl w-full h-full flex flex-col items-center justify-center">
-      <img id="lightbox-image" src="" alt="Expanded View" class="lightbox-img max-h-[80vh] max-w-full object-contain drop-shadow-[0_0_40px_rgba(229,192,123,0.3)] rounded-xl">
+      <img id="lightbox-image" src="" alt="Expanded View" class="lightbox-img max-h-[80vh] max-w-full object-contain rounded-2xl shadow-2xl">
       <div class="absolute bottom-10 left-0 w-full text-center">
-        <span class="bg-brand-plum/80 backdrop-blur border border-brand-gold/40 text-brand-gold text-[11px] font-bold tracking-widest uppercase px-6 py-3 rounded-full shadow-lg">
+        <span class="bg-white border border-brand-border text-brand-gold text-[11px] font-bold tracking-widest uppercase px-6 py-3 rounded-full shadow-lg">
           Exclusive Craft
         </span>
       </div>
     </div>
   </div>
 
-  <nav class="fixed top-0 w-full z-40 bg-brand-glass backdrop-blur-2xl border-b border-brand-gold/10">
+  <!-- NAV -->
+  <nav class="nav-glass fixed top-0 w-full z-40 border-b border-brand-border">
     <div class="max-w-7xl mx-auto px-5 py-4 flex justify-between items-center">
       <div class="flex items-center gap-4">
-        <div class="w-12 h-12 rounded-xl border border-brand-gold/50 flex items-center justify-center bg-brand-plum shadow-[0_0_20px_rgba(229,192,123,0.2)] animate-glow-pulse">
+        <div class="w-12 h-12 rounded-xl border-2 border-brand-gold flex items-center justify-center bg-brand-cream shadow-sm animate-glow-pulse">
           <span class="font-serif text-brand-gold font-black text-lg">CH</span>
         </div>
         <div class="flex flex-col">
           <span class="font-serif font-black premium-text-gradient tracking-[0.25em] text-sm uppercase leading-none">The Crochet</span>
-          <span class="font-serif font-bold text-gray-300 tracking-[0.4em] text-[10px] uppercase leading-none mt-1.5 pl-0.5">Heavenn</span>
+          <span class="font-serif font-bold text-brand-muted tracking-[0.4em] text-[10px] uppercase leading-none mt-1.5 pl-0.5">Heavenn</span>
         </div>
       </div>
-      <a href="https://www.instagram.com/the_crochet_heavenn" target="_blank" rel="noopener" class="text-brand-gold/80 hover:text-brand-gold transition-colors text-2xl drop-shadow-[0_0_10px_rgba(229,192,123,0.4)]">
+      <a href="https://www.instagram.com/the_crochet_heavenn" target="_blank" rel="noopener"
+         class="text-brand-rose hover:text-brand-gold transition-colors text-2xl">
         <i class="fa-brands fa-instagram"></i>
       </a>
     </div>
   </nav>
 
+  <!-- HERO -->
   <section class="relative pt-40 pb-24 px-6 flex flex-col items-center text-center min-h-[90vh] justify-center overflow-hidden">
-    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-accent/30 rounded-full blur-[100px] -z-10 mix-blend-screen animate-float-slow"></div>
-    <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-brand-gold/10 rounded-full blur-[80px] -z-10 mix-blend-screen animate-float-slow" style="animation-delay: 2s;"></div>
-    
-    <div class="inline-flex items-center py-2 px-5 rounded-full border border-brand-gold/40 bg-brand-plum/50 backdrop-blur-md text-brand-gold tracking-[0.25em] uppercase text-[10px] font-bold mb-8 reveal shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-rose/10 rounded-full blur-[110px] -z-10 animate-float-slow"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-brand-gold/10 rounded-full blur-[90px] -z-10 animate-float-slow" style="animation-delay:2s;"></div>
+
+    <div class="tag-pill inline-flex items-center py-2 px-5 rounded-full text-[10px] font-bold tracking-[0.25em] uppercase mb-8 reveal shadow-sm">
       <i class="fa-solid fa-location-dot mr-2"></i> Handcrafted in Nashik
     </div>
-    
-    <h1 class="font-serif text-5xl md:text-7xl font-black leading-[1.1] mb-6 reveal drop-shadow-2xl" style="transition-delay: 100ms;">
+
+    <h1 class="font-serif text-5xl md:text-7xl font-black leading-[1.1] mb-6 reveal text-brand-text" style="transition-delay:100ms;">
       Where Yarn Meets<br>
       <span class="premium-text-gradient italic">Imagination.</span>
     </h1>
-    
-    <p class="text-gray-300 text-sm md:text-lg font-light mb-12 max-w-lg mx-auto leading-relaxed reveal" style="transition-delay: 200ms;">
+
+    <p class="text-brand-muted text-sm md:text-lg font-light mb-12 max-w-lg mx-auto leading-relaxed reveal" style="transition-delay:200ms;">
       Elevating crochet into premium bespoke art. Intricate amigurumi, customized typography, and eternal floral designs.
     </p>
-    
-    <div class="flex flex-col sm:flex-row w-full sm:w-auto gap-5 reveal" style="transition-delay: 300ms;">
-      <a href="https://wa.me/919356015263?text=Hi%20@the_crochet_heavenn!%20I'm%20ready%20to%20discuss%20a%20masterpiece." 
+
+    <div class="flex flex-col sm:flex-row w-full sm:w-auto gap-5 reveal" style="transition-delay:300ms;">
+      <a href="https://wa.me/919356015263?text=Hi%20@the_crochet_heavenn!%20I'm%20ready%20to%20discuss%20a%20masterpiece."
          target="_blank" rel="noopener"
-         class="app-card border-brand-gold/60 bg-gradient-to-br from-brand-gold to-[#B38D22] text-brand-dark font-black text-[13px] py-4 px-10 rounded-full uppercase tracking-[0.2em] flex items-center justify-center gap-3 active:scale-95 transition-transform">
+         class="inline-flex items-center justify-center gap-3 bg-gradient-to-br from-brand-gold to-brand-golddk text-white font-black text-[13px] py-4 px-10 rounded-full uppercase tracking-[0.2em] shadow-lg active:scale-95 transition-transform hover:shadow-xl">
         <i class="fa-brands fa-whatsapp text-xl"></i> Commission Artwork
       </a>
     </div>
   </section>
 
-  <section class="py-10 border-y border-brand-gold/10 bg-brand-plum/30 backdrop-blur-lg">
+  <!-- PILLARS -->
+  <section class="pillar-strip py-10">
     <div class="max-w-5xl mx-auto flex justify-between items-center px-4 reveal">
       <div class="text-center flex-1">
-        <div class="w-12 h-12 mx-auto bg-brand-dark rounded-full border border-brand-gold/20 flex items-center justify-center mb-3 shadow-inner">
+        <div class="w-12 h-12 mx-auto bg-brand-cream rounded-full border border-brand-border flex items-center justify-center mb-3">
           <i class="fa-solid fa-gem text-xl text-brand-gold"></i>
         </div>
-        <p class="text-[9px] md:text-[11px] uppercase tracking-[0.2em] text-brand-goldlight font-bold">Bespoke<br>Design</p>
+        <p class="text-[9px] md:text-[11px] uppercase tracking-[0.2em] text-brand-gold font-bold">Bespoke<br>Design</p>
       </div>
-      <div class="w-px h-16 bg-gradient-to-b from-transparent via-brand-gold/30 to-transparent"></div>
+      <div class="w-px h-16 bg-gradient-to-b from-transparent via-brand-border to-transparent"></div>
       <div class="text-center flex-1">
-        <div class="w-12 h-12 mx-auto bg-brand-dark rounded-full border border-brand-gold/20 flex items-center justify-center mb-3 shadow-inner">
+        <div class="w-12 h-12 mx-auto bg-brand-cream rounded-full border border-brand-border flex items-center justify-center mb-3">
           <i class="fa-solid fa-clock text-xl text-brand-gold"></i>
         </div>
-        <p class="text-[9px] md:text-[11px] uppercase tracking-[0.2em] text-brand-goldlight font-bold">48-Hour<br>Crafting</p>
+        <p class="text-[9px] md:text-[11px] uppercase tracking-[0.2em] text-brand-gold font-bold">48-Hour<br>Crafting</p>
       </div>
-      <div class="w-px h-16 bg-gradient-to-b from-transparent via-brand-gold/30 to-transparent"></div>
+      <div class="w-px h-16 bg-gradient-to-b from-transparent via-brand-border to-transparent"></div>
       <div class="text-center flex-1">
-        <div class="w-12 h-12 mx-auto bg-brand-dark rounded-full border border-brand-gold/20 flex items-center justify-center mb-3 shadow-inner">
+        <div class="w-12 h-12 mx-auto bg-brand-cream rounded-full border border-brand-border flex items-center justify-center mb-3">
           <i class="fa-solid fa-truck-fast text-xl text-brand-gold"></i>
         </div>
-        <p class="text-[9px] md:text-[11px] uppercase tracking-[0.2em] text-brand-goldlight font-bold">Nationwide<br>Shipping</p>
+        <p class="text-[9px] md:text-[11px] uppercase tracking-[0.2em] text-brand-gold font-bold">Nationwide<br>Shipping</p>
       </div>
     </div>
   </section>
 
-  <section class="py-24 relative z-10">
+  <!-- REVIEWS -->
+  <section class="py-24 relative z-10 bg-brand-bg">
     <div class="max-w-7xl mx-auto">
       <div class="px-6 reveal mb-8 text-center">
-        <span class="text-brand-gold/80 tracking-[0.3em] uppercase text-[10px] font-bold block mb-2">Social Proof</span>
-        <h2 class="font-serif text-3xl md:text-5xl text-white">Client Experiences</h2>
+        <span class="text-brand-rose tracking-[0.3em] uppercase text-[10px] font-bold block mb-2">Social Proof</span>
+        <h2 class="font-serif text-3xl md:text-5xl text-brand-text">Client Experiences</h2>
       </div>
 
       <div class="swipe-track reveal pb-10">
+
         <div class="swipe-item">
-          <div class="app-card p-8 h-full flex flex-col justify-between group">
+          <div class="review-card p-8 h-full flex flex-col justify-between group">
             <i class="fa-solid fa-quote-left text-4xl text-brand-gold/20 mb-4 transform group-hover:scale-110 transition-transform"></i>
             <div>
               <div class="flex gap-1 text-brand-gold text-sm mb-5">
                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
               </div>
-              <p class="text-gray-200 text-lg font-light leading-relaxed">"When flowers say 'forever'... and actually mean it!"</p>
+              <p class="text-brand-text text-lg font-light leading-relaxed">"When flowers say 'forever'... and actually mean it!"</p>
             </div>
             <div class="mt-8 flex items-center gap-4">
-              <div class="w-10 h-10 rounded-full bg-gradient-to-br from-brand-gold to-brand-plum flex items-center justify-center text-brand-dark font-bold font-serif text-lg">M</div>
+              <div class="w-10 h-10 rounded-full bg-gradient-to-br from-brand-gold to-brand-rose flex items-center justify-center text-white font-bold font-serif text-lg">M</div>
               <div>
-                <p class="text-white text-sm font-bold tracking-wide">@maimoona_06_</p>
-                <p class="text-brand-gold/60 text-[10px] uppercase tracking-widest">Verified Collector</p>
+                <p class="text-brand-text text-sm font-bold tracking-wide">@maimoona_06_</p>
+                <p class="text-brand-muted text-[10px] uppercase tracking-widest">Verified Collector</p>
               </div>
             </div>
           </div>
         </div>
 
         <div class="swipe-item">
-          <div class="app-card p-8 h-full flex flex-col justify-between group">
+          <div class="review-card p-8 h-full flex flex-col justify-between group">
             <i class="fa-solid fa-quote-left text-4xl text-brand-gold/20 mb-4 transform group-hover:scale-110 transition-transform"></i>
             <div>
               <div class="flex gap-1 text-brand-gold text-sm mb-5">
                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
               </div>
-              <p class="text-gray-200 text-lg font-light leading-relaxed">"Took hours, but the bouquets won't wilt but will woww 💕🤌"</p>
+              <p class="text-brand-text text-lg font-light leading-relaxed">"Took hours, but the bouquets won't wilt but will woww 💕🤌"</p>
             </div>
             <div class="mt-8 flex items-center gap-4">
-              <div class="w-10 h-10 rounded-full bg-gradient-to-br from-brand-gold to-brand-plum flex items-center justify-center text-brand-dark font-bold font-serif text-lg">L</div>
+              <div class="w-10 h-10 rounded-full bg-gradient-to-br from-brand-gold to-brand-rose flex items-center justify-center text-white font-bold font-serif text-lg">L</div>
               <div>
-                <p class="text-white text-sm font-bold tracking-wide">@lulua_dakorwala</p>
-                <p class="text-brand-gold/60 text-[10px] uppercase tracking-widest">Verified Collector</p>
+                <p class="text-brand-text text-sm font-bold tracking-wide">@lulua_dakorwala</p>
+                <p class="text-brand-muted text-[10px] uppercase tracking-widest">Verified Collector</p>
               </div>
             </div>
           </div>
         </div>
-        
+
         <div class="swipe-item">
-          <div class="app-card p-8 h-full flex flex-col justify-between group">
+          <div class="review-card p-8 h-full flex flex-col justify-between group">
             <i class="fa-solid fa-quote-left text-4xl text-brand-gold/20 mb-4 transform group-hover:scale-110 transition-transform"></i>
             <div>
               <div class="flex gap-1 text-brand-gold text-sm mb-5">
                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
               </div>
-              <p class="text-gray-200 text-lg font-light leading-relaxed">"Fasna allowed, bouquet itna cute jo hai 🎀. Absolutely stunning art."</p>
+              <p class="text-brand-text text-lg font-light leading-relaxed">"Fasna allowed, bouquet itna cute jo hai 🎀. Absolutely stunning art."</p>
             </div>
             <div class="mt-8 flex items-center gap-4">
-              <div class="w-10 h-10 rounded-full border border-brand-gold/50 flex items-center justify-center text-brand-gold font-bold"><i class="fa-brands fa-instagram text-xl"></i></div>
+              <div class="w-10 h-10 rounded-full border-2 border-brand-rose flex items-center justify-center text-brand-rose font-bold">
+                <i class="fa-brands fa-instagram text-xl"></i>
+              </div>
               <div>
-                <p class="text-white text-sm font-bold tracking-wide">Instagram DM</p>
-                <p class="text-brand-gold/60 text-[10px] uppercase tracking-widest">Direct Feedback</p>
+                <p class="text-brand-text text-sm font-bold tracking-wide">Instagram DM</p>
+                <p class="text-brand-muted text-[10px] uppercase tracking-widest">Direct Feedback</p>
               </div>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <section id="gallery" class="py-24 relative bg-brand-dark/80 border-t border-brand-gold/10">
+  <!-- GALLERY -->
+  <section id="gallery" class="gallery-bg py-24">
     <div class="max-w-7xl mx-auto">
       <div class="flex flex-col md:flex-row justify-between items-center md:items-end px-6 mb-12 reveal text-center md:text-left">
         <div>
-          <h2 class="font-serif text-4xl text-white">The Collection</h2>
-          <p class="text-gray-400 text-sm mt-3 font-light">Tap any masterpiece to expand the details.</p>
+          <h2 class="font-serif text-4xl text-brand-text">The Collection</h2>
+          <p class="text-brand-muted text-sm mt-3 font-light">Tap any masterpiece to expand the details.</p>
         </div>
-        <div class="hidden md:block text-brand-gold text-xs font-bold uppercase tracking-[0.3em]">
-           Archive
-        </div>
+        <div class="hidden md:block text-brand-gold text-xs font-bold uppercase tracking-[0.3em]">Archive</div>
       </div>
 
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-4 md:px-6 reveal" id="gallery-container">
-        </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-4 md:px-6 reveal" id="gallery-container"></div>
 
       <div class="mt-16 text-center reveal" id="load-more-wrapper">
-        <button id="load-more-btn" class="app-card inline-flex items-center gap-3 text-brand-gold text-[12px] font-bold py-4 px-10 rounded-full uppercase tracking-[0.2em] hover:bg-brand-plum/80 transition-colors active:scale-95 cursor-pointer">
+        <button id="load-more-btn" class="app-card inline-flex items-center gap-3 text-brand-gold text-[12px] font-bold py-4 px-10 rounded-full uppercase tracking-[0.2em] hover:bg-brand-cream transition-colors active:scale-95 cursor-pointer">
           <span>Reveal More</span> <i class="fa-solid fa-plus"></i>
         </button>
       </div>
     </div>
   </section>
 
-  <section class="py-24 px-6 relative z-10 border-t border-brand-gold/10">
+  <!-- CONNECT / QR -->
+  <section class="py-24 px-6 relative z-10 bg-brand-bg border-t border-brand-border">
     <div class="max-w-4xl mx-auto app-card p-10 md:p-14 text-center flex flex-col md:flex-row items-center gap-10 reveal">
-      <div class="w-48 h-48 bg-white p-3 rounded-3xl shrink-0 shadow-[0_0_50px_rgba(229,192,123,0.3)] transform -rotate-3 hover:rotate-0 transition-transform duration-500">
-        <img src="Screenshot_20260530_001014.jpg" alt="Instagram Code" class="w-full h-full object-cover rounded-2xl" onerror="this.src='https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://instagram.com/the_crochet_heavenn&color=281733&bgcolor=FFFFFF';">
+      <div class="w-48 h-48 bg-brand-cream p-3 rounded-3xl shrink-0 shadow-md border border-brand-border transform -rotate-3 hover:rotate-0 transition-transform duration-500">
+        <img src="Screenshot_20260530_001014.jpg" alt="Instagram QR Code" class="w-full h-full object-cover rounded-2xl"
+             onerror="this.src='https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://instagram.com/the_crochet_heavenn&color=1a1008&bgcolor=fdf8f2';">
       </div>
       <div class="text-center md:text-left flex-1">
-        <h3 class="font-serif text-3xl md:text-4xl text-white mb-4">Connect Directly</h3>
-        <p class="text-gray-300 text-sm md:text-base mb-8 leading-relaxed font-light">Scan to join our Instagram collective. See raw behind-the-scenes crafting, exclusive product drops, and DM us directly to secure your spot for custom commissions.</p>
-        <a href="https://www.instagram.com/the_crochet_heavenn" target="_blank" rel="noopener" class="inline-flex items-center gap-3 bg-brand-gold/10 border border-brand-gold text-brand-gold text-xs font-bold uppercase tracking-widest py-3 px-8 rounded-full hover:bg-brand-gold hover:text-brand-dark transition-colors">
+        <h3 class="font-serif text-3xl md:text-4xl text-brand-text mb-4">Connect Directly</h3>
+        <p class="text-brand-muted text-sm md:text-base mb-8 leading-relaxed font-light">Scan to join our Instagram collective. See raw behind-the-scenes crafting, exclusive product drops, and DM us directly to secure your spot for custom commissions.</p>
+        <a href="https://www.instagram.com/the_crochet_heavenn" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-3 bg-brand-cream border border-brand-gold text-brand-gold text-xs font-bold uppercase tracking-widest py-3 px-8 rounded-full hover:bg-brand-gold hover:text-white transition-colors">
           <i class="fa-brands fa-instagram text-lg"></i> Follow The Journey
         </a>
       </div>
     </div>
   </section>
 
-  <footer class="bg-[#0a060d] pt-24 pb-40 px-6 text-center border-t border-brand-gold/20 relative z-10">
+  <!-- FOOTER -->
+  <footer class="footer-bg pt-24 pb-40 px-6 text-center relative z-10">
     <div class="max-w-md mx-auto reveal">
-      <div class="w-16 h-16 mx-auto rounded-2xl border border-brand-gold/30 flex items-center justify-center mb-6 bg-brand-plum rotate-45 shadow-[0_0_30px_rgba(229,192,123,0.15)]">
+      <div class="w-16 h-16 mx-auto rounded-2xl border-2 border-brand-gold flex items-center justify-center mb-6 bg-white rotate-45 shadow-md">
         <span class="font-serif text-brand-gold text-xl font-black -rotate-45 block">CH</span>
       </div>
-      <h2 class="font-serif text-2xl text-white tracking-[0.2em] uppercase mb-3">The Crochet Heavenn</h2>
-      <p class="text-gray-500 text-xs font-light mb-10 tracking-widest uppercase">Premium Design Studio</p>
-      
-      <p class="text-brand-gold/40 text-[9px] font-bold tracking-[0.4em] uppercase">© 2026 The Crochet Heavenn. Built to last.</p>
+      <h2 class="font-serif text-2xl text-brand-text tracking-[0.2em] uppercase mb-3">The Crochet Heavenn</h2>
+      <p class="text-brand-muted text-xs font-light mb-10 tracking-widest uppercase">Premium Design Studio</p>
+      <p class="text-brand-muted/50 text-[9px] font-bold tracking-[0.4em] uppercase">© 2026 The Crochet Heavenn. Built to last.</p>
     </div>
   </footer>
 
-  <div class="fixed bottom-0 left-0 right-0 z-40 p-4 bg-brand-dark/90 backdrop-blur-2xl border-t border-brand-gold/20 pb-[calc(1rem+env(safe-area-inset-bottom))] shadow-[0_-20px_50px_rgba(0,0,0,0.9)]">
+  <!-- STICKY BOTTOM BAR -->
+  <div class="sticky-bar fixed bottom-0 left-0 right-0 z-40 p-4 pb-[calc(1rem+env(safe-area-inset-bottom))]">
     <div class="max-w-5xl mx-auto flex items-center justify-between gap-3 md:gap-6">
-      <a href="https://wa.me/919356015263?text=Hi%20@the_crochet_heavenn!%20I%20would%20love%20to%20commission%20a%20piece." 
+      <a href="https://wa.me/919356015263?text=Hi%20@the_crochet_heavenn!%20I%20would%20love%20to%20commission%20a%20piece."
          target="_blank" rel="noopener"
-         class="flex-1 flex items-center justify-center gap-3 bg-gradient-to-r from-[#25D366] to-[#128C7E] text-white font-extrabold text-[12px] md:text-[14px] py-4 px-6 rounded-2xl transition transform active:scale-95 uppercase tracking-widest shadow-[0_10px_30px_rgba(37,211,102,0.3)]">
-         <i class="fa-brands fa-whatsapp text-2xl drop-shadow-md"></i> <span>Secure Your Order</span>
+         class="flex-1 flex items-center justify-center gap-3 bg-gradient-to-r from-[#25D366] to-[#128C7E] text-white font-extrabold text-[12px] md:text-[14px] py-4 px-6 rounded-2xl transition transform active:scale-95 uppercase tracking-widest shadow-lg">
+        <i class="fa-brands fa-whatsapp text-2xl"></i> <span>Secure Your Order</span>
       </a>
-
-      <a href="https://www.instagram.com/the_crochet_heavenn" 
+      <a href="https://www.instagram.com/the_crochet_heavenn"
          target="_blank" rel="noopener"
-         class="w-14 h-[52px] md:w-16 md:h-[56px] flex items-center justify-center bg-brand-plum border border-brand-gold/40 text-brand-gold rounded-2xl transition transform active:scale-95 flex-shrink-0 shadow-[0_0_20px_rgba(229,192,123,0.15)] hover:bg-brand-gold hover:text-brand-dark">
-         <i class="fa-brands fa-instagram text-2xl md:text-3xl"></i>
+         class="w-14 h-[52px] md:w-16 md:h-[56px] flex items-center justify-center bg-white border-2 border-brand-rose text-brand-rose rounded-2xl transition transform active:scale-95 flex-shrink-0 shadow-sm hover:bg-brand-rose hover:text-white">
+        <i class="fa-brands fa-instagram text-2xl md:text-3xl"></i>
       </a>
     </div>
   </div>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      
-      // 1. High-Performance Intersection Observer for Reveal Animations
+
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('active');
-            observer.unobserve(entry.target); 
+            observer.unobserve(entry.target);
           }
         });
       }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
-
       document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-      // 2. The Complete Image Database Array
       const providedImages = [
         'Screenshot_20260530_021452.jpg', 'Screenshot_20260529_231524.jpg',
         'Screenshot_20260530_002952.jpg', 'Screenshot_20260530_002954.jpg',
@@ -414,102 +468,76 @@
       ];
 
       const uniqueGallery = [...new Set(providedImages)];
-      
       const galleryContainer = document.getElementById('gallery-container');
-      const loadMoreBtn = document.getElementById('load-more-btn');
+      const loadMoreBtn     = document.getElementById('load-more-btn');
       const loadMoreWrapper = document.getElementById('load-more-wrapper');
-      
-      // 3. Lightbox Logic
-      const lightbox = document.getElementById('lightbox');
-      const lightboxImg = document.getElementById('lightbox-image');
-      const closeBtn = document.getElementById('close-lightbox');
+      const lightbox        = document.getElementById('lightbox');
+      const lightboxImg     = document.getElementById('lightbox-image');
+      const closeBtn        = document.getElementById('close-lightbox');
 
       const openLightbox = (src) => {
         lightboxImg.src = src;
         lightbox.classList.add('active');
-        document.body.style.overflow = 'hidden'; 
+        document.body.style.overflow = 'hidden';
       };
-
       const closeLightboxHandler = () => {
         lightbox.classList.remove('active');
-        document.body.style.overflow = 'auto'; 
+        document.body.style.overflow = 'auto';
       };
-
       closeBtn.addEventListener('click', closeLightboxHandler);
-      lightbox.addEventListener('click', (e) => {
-        if(e.target === lightbox) closeLightboxHandler();
-      });
+      lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightboxHandler(); });
 
-      // 4. Core Render Engine
       let currentItemIndex = 0;
-      const itemsPerLoad = 8; 
+      const itemsPerLoad = 8;
 
-      // Error handler prevents broken images from ruining the UI
       window.handleImageError = function(imgElement) {
-        imgElement.onerror = null; 
+        imgElement.onerror = null;
         const fileName = imgElement.src.split('/').pop();
         const frame = imgElement.closest('.gallery-frame');
-        
         frame.innerHTML = `
-          <div class="w-full h-full bg-[#1a0f24] flex flex-col items-center justify-center p-4 text-center border border-red-500/20">
+          <div class="w-full h-full bg-brand-cream flex flex-col items-center justify-center p-4 text-center border border-brand-border rounded-2xl">
             <i class="fa-solid fa-triangle-exclamation text-brand-gold/40 text-2xl mb-2"></i>
-            <span class="text-[9px] text-white/50 uppercase tracking-widest break-words leading-tight">
+            <span class="text-[9px] text-brand-muted uppercase tracking-widest break-words leading-tight">
               Missing File:<br><span class="text-brand-gold font-bold mt-1 block">${fileName}</span>
             </span>
           </div>
         `;
-        
         const parentItem = frame.closest('.gallery-item');
-        if(parentItem) parentItem.style.pointerEvents = 'none';
+        if (parentItem) parentItem.style.pointerEvents = 'none';
       };
 
       function renderBatch() {
-        // Prevent out-of-bounds execution
         if (currentItemIndex >= uniqueGallery.length) return;
-
         const fragment = document.createDocumentFragment();
         const maxIndex = Math.min(currentItemIndex + itemsPerLoad, uniqueGallery.length);
 
         for (let i = currentItemIndex; i < maxIndex; i++) {
           const imgSrc = uniqueGallery[i];
-          
-          // Added 'reveal active' to bypass animation conflicts on dynamically loaded items
           const wrapper = document.createElement('div');
-          wrapper.className = 'gallery-item app-card cursor-pointer group p-2 relative reveal active'; 
-          
-          // decoding="async" prevents the uncropped heavy images from lagging the browser
+          wrapper.className = 'gallery-item app-card cursor-pointer group p-2 relative reveal active';
           wrapper.innerHTML = `
             <div class="gallery-frame">
               <img src="${imgSrc}" class="gallery-img" alt="Bespoke Crochet Art" decoding="async" onerror="handleImageError(this)">
-              <div class="absolute inset-0 bg-brand-dark/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <div class="w-12 h-12 rounded-full bg-brand-gold/90 text-brand-dark flex items-center justify-center transform scale-50 group-hover:scale-100 transition-transform duration-300 shadow-xl">
+              <div class="absolute inset-0 bg-brand-text/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-2xl">
+                <div class="w-12 h-12 rounded-full bg-white text-brand-gold flex items-center justify-center transform scale-50 group-hover:scale-100 transition-transform duration-300 shadow-xl">
                   <i class="fa-solid fa-expand text-xl"></i>
                 </div>
               </div>
             </div>
           `;
-
           wrapper.addEventListener('click', () => openLightbox(imgSrc));
           fragment.appendChild(wrapper);
         }
 
         galleryContainer.appendChild(fragment);
         currentItemIndex = maxIndex;
-
-        // Immediately hide button when archive is fully rendered
         if (currentItemIndex >= uniqueGallery.length) {
           loadMoreWrapper.classList.add('hidden-force');
         }
       }
 
-      // Execute Initial Batch instantly
       renderBatch();
-
-      // 5. Instant Load More Event
-      loadMoreBtn.addEventListener('click', () => {
-        // Fires instantly without timeouts to prevent perceived lag
-        renderBatch();
-      });
+      loadMoreBtn.addEventListener('click', renderBatch);
     });
   </script>
 </body>
